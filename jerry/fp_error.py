@@ -12,7 +12,7 @@ print(d)
 print(d == 0.3)  # False!
 
 # math gives you a function for comparing numbers in those cases
-print(math.isclose(d, 0.1))  # returns True
+print(math.isclose(d, 0.3))  # returns True
 
 """
 For critical workflows, use the Decimal class to overcome these limitations.
