@@ -1,0 +1,291 @@
+# ============================= PAST EXOS REVIEW ======================================
+
+def hallow_square(n):
+    result = ""
+    for row in range(1 , n + 1):
+        if row == 1 or row == n:
+            result += "*" * n
+        else:
+            result += "*" + " " * (n - 2) + "*"
+        result += "\n"
+    return result
+print(hallow_square(5))
+
+print()
+
+def num_pattern(n):
+    result = ""
+    for row in range(1 , n + 1):
+        number = 1
+        while number <= row:
+            result += str(number)
+            number += 1
+        if row < n:
+            result += "\n"
+    return result
+print(num_pattern(5))
+
+print()
+
+def sum_pattern(n):
+    formula = ""
+    number = 0
+    for num in range(1, n + 1):
+        number += num
+        formula += str(num)
+        if num < n:
+            formula += " + "
+    return "Sum = " + str(formula) + " = " + str(number)
+print(sum_pattern(5))
+
+print()
+
+def pyramid(n):
+    result = ""
+    for row in range(1, n+1):
+        space = " " * (n-row)
+        result += space + "*" * ((2*row)-1)
+        result += "\n"
+    return result
+print(pyramid(4))
+
+print()
+
+n=int(input("Enter a number: "))
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print("F(", n , ") = ", fibonacci(n))
+
+print()
+
+def number_waterfall(n):
+    for row in range(1, n+1):
+        for num in range(1, n+2-row):
+            print(num, end="")
+        print()
+print(number_waterfall(5))
+
+print()
+
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+print(str(n)+"! = ", factorial(5))
+
+def add_factorial(n):
+    result = 1
+    formula = ""
+    for i in range(1, n+1):
+        result *= i
+        formula += str(i)
+        if i < n:
+            formula += " * "
+    return str(n)+"! = "+ str(formula) + " = "+ str(result)
+print(add_factorial(5))
+
+def backward_factorial(n):
+    result = 1
+    formula = ""
+    for i in range(n, 0, -1):
+        result *= i
+        formula += str(i)
+        if i > 1:
+            formula += " * "
+    return str(formula) + " = " + str(result)
+print(backward_factorial(5))
+
+print()
+
+
+n=int(input("Enter a number: "))
+def analyze_numbers(n):
+    even_counter=0
+    sum_counter=0
+    counter_3=0
+    for number in range(1,n+1):
+        if number % 2 == 0:
+            even_counter+=1
+            sum_counter+=number
+
+        if number % 3 == 0:
+            counter_3+=1
+    print(even_counter, "numbers are even" )
+    print("All numbers have a sum of ", sum_counter)
+    print(counter_3 , "numbers are divisible by 3" )
+analyze_numbers(n)
+
+print()
+
+# ================================== PRACTICE EXAM =========================================
+
+#Question 1
+# *
+# **
+# ***
+# ****
+def pyramid(n):
+    result = ""
+    for row in range(1, n+1):
+        result +="*" * row
+        result +="\n"
+    return result
+print(pyramid(4))
+
+print()
+
+# Question 2
+# *******
+#  *****
+#   ***
+#    *
+
+def upsidedown_triangle(n):
+    result = ""
+    for row in range (1, n+1):
+        result += " " * (row-1) + "*" * (2*(n-row)+1)
+        result +="\n"
+    return result
+print(upsidedown_triangle(4))
+
+print()
+
+# Question 3
+# 1
+# 22
+# 333
+# 4444
+
+def number_triangle(n):
+    result = ""
+    for row in range(1, n+1):
+        result += str(row)* row
+        result += "\n"
+    return result
+print(number_triangle(4))
+
+print()
+
+
+# Question 4
+# ******
+# *    *
+# *    *
+# ******
+
+def hallow_rec(height, width):
+    result = ""
+    for row in range(1, height+1):
+        if row == 1 or row == height:
+            result += "*"*width
+        else:
+            result += "*" + " " * (width - 2) + "*"
+        result += "\n"
+    return result
+print(hallow_rec(4, 6))
+
+print()
+
+# Question 5
+# Sum = 2 + 4 + 6 = 12
+
+def even_sum(n):
+    result = 0
+    formula = ""
+    for num in range(1, n+1):
+        if num % 2 == 0:
+            formula += str(num)
+            result += num
+        if num < n and num % 2 == 0:
+            formula += " + "
+    return " Sum = " + str(formula) + " = " + str(result)
+print(even_sum(6))
+
+print()
+
+# Question 5
+#2 numbers are divisible by 5
+#5 numbers are odd
+#The sum of the odd numbers is 25
+
+n= int(input("Enter a number: "))
+def number_ana(n):
+    div_5 = 0
+    odd_counter = 0
+    odd_sum = 0
+    for number in range(1, n+1):
+        if number % 5 == 0:
+            div_5 += 1
+        if number % 2 != 0:
+            odd_counter += 1
+            odd_sum += number
+    print(str(div_5) + " numbers are divisible by 5")
+    print(str(odd_counter) + " numbers are odd")
+    print("The sum of the odd numbers is " + str(odd_counter))
+number_ana(n)
+
+print()
+
+# Question 5
+# *
+# **
+# * *
+# *  *
+# *****
+
+def hallow_triangle(n):
+    result = ""
+    for row in range(1, n+1):
+        if row == 1 or row == n:
+            result+= "*" * row
+        else:
+            result += "*" + " " * (row - 2) + "*"
+        result += "\n"
+    return result
+print(hallow_triangle(5))
+
+print()
+
+# Question 6
+#    1
+#   121
+#  12321
+# 1234321
+
+def mirror_num_pyramid(n):
+    result = ""
+    for row in range(1, n+1):
+        result += " " * (n-row)
+        for num in range(1, row+1):
+            result += str(num)
+        for num in range (row-1, 0, -1):
+            result +=str(num)
+        result += "\n"
+    return result
+print(mirror_num_pyramid(4))
+
+print()
+
+# Question 7
+# 3 x 1 = 3
+# 3 x 2 = 6
+# ...
+# 3 x 10 = 30
+
+
+def time_table_10(n):
+    result = ""
+    for row in range(1, 11):
+        result += str(n) + " x " + str(row) + " = " + str(n * row)
+        if row <= 10:
+            result += "\n"
+    return result
+time_table_10(3)
+print(time_table_10(3))
