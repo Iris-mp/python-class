@@ -3,6 +3,16 @@
 #[1,2,3,1,2,3], 2 -> 2
 # [1,1,1,1,2,3], 1 -> 4
 # [1,2,3,4,5], 6 -> 0
+def count_num(nums, target):
+    count = 0
+    for number in nums:
+        if number == target:
+            count += 1
+    return count
+nums = [int(x) for x in input("Enter the list(numbers separated by spaces): ").split()]
+target = int(input("Enter the target number: "))
+print(str(nums) + ", " + str(target) + " -> " + str(count_num(nums, target)))
+print()
 
 # Question 2
 #Write a function find_shared_num(nums1, nums2) that receives two lists of numbers and returns all numbers that appear in both two lists.
@@ -10,15 +20,17 @@
 # [1,2,3,4], [4, 2] -> [2, 4]
 # [1,2,3], [4,5,6] -> []
 def find_shared_num(nums1, nums2):
+    shared_nums = []
     for number in nums1:
         if number in nums2:
-            return number
-nums1 = [1,2,3,4]
-nums2 = [4,5,6]
-print(str(nums1) + " , " + str(nums2) + " -> " + " [" + str(find_shared_num(nums1, nums2)) + "] ")
+            shared_nums.append(number)
+    return shared_nums
+nums1 = [1,2,3]
+nums2 = [3,4,5]
+print(str(nums1) + ", " + str(nums2) + " -> " + str(find_shared_num(nums1, nums2)))
+print()
 
-
-
+#Question 3
 # Write a function remove_element(nums, threshold) that receives a list of numbers, and a threshold, the function returns a new list that contains the number bigger than the threshold in the input list.
 # [95, 74, 80, 62], 75 -> [95, 80]
 # [95, 74, 80, 62], 98 -> []
@@ -27,19 +39,27 @@ print(str(nums1) + " , " + str(nums2) + " -> " + " [" + str(find_shared_num(nums
 def remove_element(nums, threshold):
     over_threshold = []
     for number in nums:
-        if int(number) > int(threshold):
+        if number > threshold:
             over_threshold.append(number)
+    return over_threshold
 
-nums = list(input("Enter the  list (numbers separated by spaces): "))
+nums = [int(x) for x in input("Enter the list(numbers separated by spaces): ").split()]
 threshold = int(input("Enter the threshold to remove the element: "))
-print( str(nums) + " , " + str(threshold) + " -> " + " [" + str(remove_element(nums, threshold)) + "]" )
+print( str(nums) + ", " + str(threshold) + " -> " + str(remove_element(nums, threshold)))
+print()
 
+#Question 4
 # Write a function update_nums(nums) that takes a list of numbers, increase each number at even position by 1, and decrease each number at odd position by 1, return the results in a new list.
 # Example (n = 4):
 # [1, 2, 3, 4] -> [2, 1, 4, 3]
 # [4, 1, 6, 4] -> [5, 0, 7, 3]
-def update_num(nums):
-   new_nums=[nums+1 in range(-2,len(nums)+1,2) and nums-1 in range(0,len(nums)+1,2)]
-   return new_nums
+def update_nums(nums):
+   result = []
+   for i in range(len(nums)):
+       if i % 2 == 0:
+           result.append(nums[i]+1)
+       else:
+           result.append(nums[i] - 1)
+   return result
 nums = [1, 2, 3, 4]
-print(str(nums) + " -> " + " [" + str(update_num(nums)) + "]")
+print(str(nums) + " -> " + str(update_nums(nums)))
