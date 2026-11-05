@@ -1,0 +1,100 @@
+# Example 8: Read an integer matrix and a target value. Display every position
+# where the target occurs, using row and column numbers starting at 1.
+# If the target does not occur, display an appropriate message.
+def find_target(matrix, target):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    # Search every position
+    found = False
+    for row in range(rows):
+        for col in range(cols):
+            if matrix[row][col] == target:
+                print("Found at row", row + 1, "column", col + 1)
+                found = True
+
+    if found == False:
+        print("The target", target, "does not occur in the matrix.")
+
+
+print("----- Example 8 -----")
+find_target([[1, 2, 3],
+             [3, 5, 6]], 3)
+find_target([[1, 2, 3],
+             [3, 5, 6]], 9)
+print()
+
+
+# Example 9: Transpose a rectangular matrix
+# Ex:
+# Original matrix:
+# 1 2 3
+# 4 5 6
+# Transpose:
+# 1 4
+# 2 5
+# 3 6
+def transpose_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    # Build the transpose: column col of the original becomes row col
+    transpose = []
+    for col in range(cols):
+        new_row = []
+        for row in range(rows):
+            new_row.append(matrix[row][col])
+        transpose.append(new_row)
+
+    print("Original matrix:")
+    for row in range(rows):
+        for col in range(cols):
+            print(matrix[row][col], end=" ")
+        print()
+
+    print("Transpose:")
+    for col in range(cols):
+        for row in range(rows):
+            print(transpose[col][row], end=" ")
+        print()
+
+
+print("----- Example 9 -----")
+transpose_matrix([[1, 2, 3],
+                  [4, 5, 6]])
+print()
+
+
+# Example 10: Check whether a matrix is symmetric
+# Ex: the following matrix
+# 1 2 3
+# 2 4 5
+# 3 5 6
+# is symmetric
+def check_symmetric(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    symmetric = True
+
+    # A symmetric matrix must be square
+    if rows != cols:
+        symmetric = False
+    else:
+        for row in range(rows):
+            for col in range(cols):
+                if matrix[row][col] != matrix[col][row]:
+                    symmetric = False
+
+    if symmetric:
+        print("The matrix is symmetric.")
+    else:
+        print("The matrix is not symmetric.")
+
+
+print("----- Example 10 -----")
+check_symmetric([[1, 2, 3],
+                 [2, 4, 5],
+                 [3, 5, 6]])
+check_symmetric([[1, 2],
+                 [3, 4]])
